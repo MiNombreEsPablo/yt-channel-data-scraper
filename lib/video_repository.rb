@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'video'
 # require_relative 'parsing_service'
 # require_relative 'crawling_service'
@@ -25,7 +27,5 @@ class VideoRepository
   end
 
   # the following method should be called with the user inputted url from the interface
-  def start()
-
-  end
+  def start; end
 end

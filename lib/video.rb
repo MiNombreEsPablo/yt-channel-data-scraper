@@ -2,7 +2,8 @@
 
 class Video
   # url, channel_url, publication_date, title, description, duration, view_count, like_count, comment_count
-  attr_reader :url, :title, :description, :duration, :view_count, :like_count, :comment_count, :channel_url, :publication_date
+  attr_reader :url, :title, :description, :duration, :view_count, :like_count, :comment_count, :channel_url,
+              :publication_date
 
   def initialize(attributes = {})
     @url = attributes[:url] || attributes['url']
