@@ -1,6 +1,6 @@
 # yt-channel-data-scraper
 
-This repository a Ruby program that scrapes data from a YouTube channel and outputs it in CSV format.
+This repository contains a Ruby program that scrapes data from a YouTube channel and outputs it in CSV format.
 
 ## Features
 
