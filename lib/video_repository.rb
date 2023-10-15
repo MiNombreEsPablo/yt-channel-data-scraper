@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'video'
-# require_relative 'parsing_service'
+require_relative 'parsing_service'
 # require_relative 'crawling_service'
 require 'csv'
 require 'date'
@@ -9,7 +9,7 @@ require 'date'
 class VideoRepository
   def initialize
     @videos = []
-    # @parser = ParsingService.new
+    @parser = ParsingService.new
     # @crawler = CrawlingService.new
     @results = []
   end
