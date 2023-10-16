@@ -7,6 +7,8 @@ require 'csv'
 require 'date'
 
 class VideoRepository
+  attr_reader :channel_url
+
   def initialize
     @videos = []
     @parser = ParsingService.new
@@ -21,7 +23,6 @@ class VideoRepository
 
   def add(url)
     video = @parser.parse(url)
-    video.merge!(channel_url: @channel_url)
     @videos << Video.new(@parser.parse(url))
   end
 
@@ -46,7 +47,7 @@ class VideoRepository
     CSV.open('videos.csv', 'w') do |csv|
       csv << %w[title url channel_url publication_date description duration view_count like_count sample_date]
       @videos.each do |video|
-        csv << [video.title, video.url, video.channel_url, video.publication_date, video.description, video.duration,
+        csv << [video.title, video.url, @channel_url, video.publication_date, video.description, video.duration,
                 video.view_count, video.like_count, Date.today]
       end
     end
