@@ -24,7 +24,7 @@ class ParsingService
     result = scrape(doc)
     result = result.merge(url: url)
     browser.close
-    return result
+    result
   end
 
   private
@@ -35,13 +35,13 @@ class ParsingService
   end
 
   def scrape(doc)
-    description = doc.css('#description-inline-expander').text
+    description = doc.css('#description-inline-expander yt-attributed-string').first.text
     title = doc.css('#container > h1 > yt-formatted-string').text
     vidinfo = doc.css('#info span')
     publication_date = vidinfo[2].text
     view_count = vidinfo[0].text.gsub(/[^0-9]/, '').to_i
     duration = doc.css('.ytp-time-duration').text
-    like_count = 'pending'
+    like_count = doc.css('.yt-core-attributed-string.yt-core-attributed-string--white-space-no-wrap')[8].text
     { description: description, title: title, publication_date: publication_date, duration: duration,
       view_count: view_count, like_count: like_count }
   end
