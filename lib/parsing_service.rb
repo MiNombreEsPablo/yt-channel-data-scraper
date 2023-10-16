@@ -2,7 +2,7 @@
 
 # Path: lib/parsing_service.rb
 # The parsing service is responsible for getting the deisred attributes from a video
-# url, channel_url, publication_date, title, description, duration, view_count, like_count, comment_count
+# url, channel_url, publication_date, title, description, duration, view_count, like_count
 
 gem 'selenium-webdriver', '4.10.0'
 gem 'webdrivers', '5.3.1'
@@ -21,7 +21,10 @@ class ParsingService
     description_expander(browser)
     html = browser.html
     doc = Nokogiri::HTML.parse(html, nil, 'utf-8')
-    scrape(doc)
+    result = scrape(doc)
+    result = result.merge(url: url)
+    browser.close
+    return result
   end
 
   private
@@ -34,12 +37,12 @@ class ParsingService
   def scrape(doc)
     description = doc.css('#description-inline-expander').text
     title = doc.css('#container > h1 > yt-formatted-string').text
-    publication_date = 'pending'
-    duration = 'pending'
-    view_count = 'pending'
+    vidinfo = doc.css('#info span')
+    publication_date = vidinfo[2].text
+    view_count = vidinfo[0].text.gsub(/[^0-9]/, '').to_i
+    duration = doc.css('.ytp-time-duration').text
     like_count = 'pending'
-    comment_count = 'pending'
     { description: description, title: title, publication_date: publication_date, duration: duration,
-      view_count: view_count, like_count: like_count, comment_count: comment_count }
+      view_count: view_count, like_count: like_count }
   end
 end
