@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+gem 'dotenv'
+gem 'google-api-client', '~> 0.33'
 gem 'rake'
 gem 'rspec', '~> 3.0'
 gem 'selenium-webdriver', '4.10.0'
