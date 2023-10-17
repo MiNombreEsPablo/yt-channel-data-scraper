@@ -54,8 +54,6 @@ To use the YouTube video scraper, follow these steps:
 
 3. The program will crawl the channel, extract video URLs, fetch information using the YouTube API, and store the information in a CSV file (`videos.csv`).
 
-4.
-
 ## Dependencies
 
 The program relies on the following Ruby gems:
