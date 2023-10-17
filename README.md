@@ -2,7 +2,7 @@
 
 This Ruby program is designed to scrape information about videos from a YouTube channel, utilizing web scraping techniques and the YouTube API. The program consists of three main components: a `Video` class for representing video objects, a `ParsingService` class for extracting video information using the YouTube API, and a `CrawlingService` class for crawling a YouTube channel to collect video URLs.
 
-Runing the program creates a `videos.csv` file that contains the following contents for the last 1,020 videos uploaded to the propmted channel:
+Runing the program creates a `videos.csv` file that contains the following contents for the last ~5,000 videos uploaded to the propmted channel:
 
 - Title of the video
 - Url of the video
