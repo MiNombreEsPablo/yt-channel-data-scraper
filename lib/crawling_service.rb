@@ -27,7 +27,7 @@ class CrawlingService
       sleep(1)
       html = browser.html
       parse(html)
-       return @list
+      @list
     rescue StandardError => e
       puts "An error occurred: #{e.message}"
     ensure
