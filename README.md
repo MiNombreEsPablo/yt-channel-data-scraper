@@ -1,6 +1,17 @@
-# YouTube Video Scraper
+# yt-channel-data-scraper
 
 This Ruby program is designed to scrape information about videos from a YouTube channel, utilizing web scraping techniques and the YouTube API. The program consists of three main components: a `Video` class for representing video objects, a `ParsingService` class for extracting video information using the YouTube API, and a `CrawlingService` class for crawling a YouTube channel to collect video URLs.
+
+Runing the program creates a `videos.csv` file that contains the following contents for the last 1,020 videos uploaded to the propmted channel:
+
+- Title of the video
+- Url of the video
+- Url of the channel
+- Publication date
+- Video description
+- View count at the moment of sampling
+- Like count at the moment of sampling
+- Sample date
 
 ## Table of Contents
 - [Installation](#installation)
@@ -42,6 +53,8 @@ To use the YouTube video scraper, follow these steps:
 2. Enter the URL of the YouTube channel when prompted.
 
 3. The program will crawl the channel, extract video URLs, fetch information using the YouTube API, and store the information in a CSV file (`videos.csv`).
+
+4.
 
 ## Dependencies
 
