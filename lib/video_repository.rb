@@ -22,7 +22,6 @@ class VideoRepository
   end
 
   def add(url)
-    video = @parser.parse(url)
     @videos << Video.new(@parser.parse(url))
   end
 
@@ -35,7 +34,8 @@ class VideoRepository
     puts 'Enter a channel url'
     @channel_url = gets.chomp
     @results = crawl_list
-    @results.each do |url|
+    @results.each_with_index do |url, index|
+      puts "Progress: #{index + 1} out of #{@results.size} (#{100 * (index + 1) / @results.size}%)"
       add(url)
     end
     dump_to_csv
