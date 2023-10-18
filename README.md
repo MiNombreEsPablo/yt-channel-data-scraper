@@ -25,7 +25,7 @@ Runing the program creates a `videos.csv` file that contains the following conte
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/youtube-video-scraper.git
+   git clone https://github.com/MiNombreEsPablo/yt-channel-data-scraper
    ```
 
 2. Install the required gems:
