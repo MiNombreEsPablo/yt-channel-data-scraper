@@ -47,7 +47,7 @@ class CrawlingService
     loop do
       current_videos = browser.elements(css: 'a#video-title-link').count
 
-      break if current_videos == @previous_videos || current_videos > 5000
+      break if current_videos == @previous_videos || current_videos > 2500
 
       browser.scroll.by(0, 9_999_999_999)
       sleep(1)
