@@ -11,7 +11,8 @@ class CrawlingService
   attr_reader :list
 
   def initialize
-    @previous_videos = 0
+    # @previous_videos = 0
+    @previous_height = 0
     @list = []
   end
 
@@ -44,15 +45,17 @@ class CrawlingService
   end
 
   def expand_loop(browser)
+    videos = 30
     loop do
-      current_videos = browser.elements(css: 'a#video-title-link').count
+      current_height = browser.execute_script('return document.documentElement.scrollHeight')
 
-      break if current_videos == @previous_videos || current_videos > 2500
+      break if current_height == @previous_height || videos > 7_500
 
       browser.scroll.by(0, 9_999_999_999)
       sleep(1)
-      puts "Number of videos: #{current_videos}"
-      @previous_videos = current_videos
+      @previous_height = current_height
+      videos += 30
+      puts "Estimated videos: #{videos}"
     end
   end
 
