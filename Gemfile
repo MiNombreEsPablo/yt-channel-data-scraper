@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'byebug'
 gem 'dotenv'
 gem 'google-api-client', '~> 0.33'
 gem 'rake'

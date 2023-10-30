@@ -39,6 +39,7 @@ class VideoRepository
       add(url)
     end
     dump_to_csv
+    puts "#{all.size} videos from #{@channel_url} have been added to the file.}"
   end
 
   private
